@@ -1,15 +1,7 @@
-import numpy as np
+import seaborn as sb
 import matplotlib.pyplot as plt
-a = 2
-b = 1
-x = np.linspace(-5,5,100)
-# y = ax+b
-y = a*x+b
+iris_dataset = sb.load_dataset('iris')
 
-plt.plot(x,y,'-r',label='y=2x+1')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend(loc="upper left")
-plt.title("Display y = 2x+1")
-plt.grid()
+sb.set()
+sb.pairplot(iris_dataset,hue='species',size=2)
 plt.show()
