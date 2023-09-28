@@ -1,7 +1,11 @@
-import seaborn as sb
+import numpy as np
 import matplotlib.pyplot as plt
-iris_dataset = sb.load_dataset('iris')
-
-sb.set()
-sb.pairplot(iris_dataset,hue='species',size=2)
+#y = ax+c
+rng = (np.random)
+x = rng.rand(50)*10
+c = rng.randn(50)
+y = 2*x+c
+plt.scatter(x,y)
+plt.xlabel('x')
+plt.ylabel('y')
 plt.show()
