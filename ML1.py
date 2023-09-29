@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
 
 dataset = pd.read_csv("Weather.csv")
 
@@ -19,14 +20,11 @@ model.fit(x_train,y_train)
 #test
 y_pred =  model.predict(x_test) 
 
-#plt.scatter(x_test,y_test)
-#plt.plot(x_test,y_pred,color="red",linewidth=2)
-#plt.show()
-
-
 #compare true data & predict data
 df = pd.DataFrame({'Actually':y_test.flatten(),'Predicted':y_pred.flatten()})
 
-df1 = df.head(20)
-df1.plot(kind="bar",figsize=(16,10))
-plt.show()
+#ใกล้0=ดี
+print("MAE",metrics.mean_absolute_error(y_test,y_pred))#การคำนวน Error ว่า y_pred ต่างจาก y_test อยู่เท่าไร ด้วยการนำมาลบกันตรง ๆ แล้วหาค่าเฉลี่ย โดยไม่สนใจเครื่องหมาย
+print("MSE",metrics.mean_squared_error(y_test,y_pred))#การคำนวน Error ว่า y_pred ต่างจาก y_test อยู่เท่าไร ด้วยการนำมาลบกัน แล้วยกกำลังสอง
+print("RMSE",np.sqrt(metrics.mean_squared_error(y_test,y_pred)))#MSE มาหา Squared Root
+print("Score = ",metrics.r2_score(y_test,y_pred))#%ความแม่นยำ
