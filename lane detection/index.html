@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Firebase App</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+
+    <script>
+    // REPLACE WITH YOUR web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDc-8VFnDPLkAPKoBCYlo-ffd7XVjUNjlM",
+    authDomain: "test-666a1.firebaseapp.com",
+    databaseURL: "https://test-666a1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "test-666a1",
+    storageBucket: "test-666a1.appspot.com",
+    messagingSenderId: "423503459287",
+    appId: "1:423503459287:web:40d825a46c58ea03595192"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    // Get a reference to the storage service, which is used to create references in your storage bucket
+    var storage = firebase.storage();
+
+    // Create a storage reference from our storage service
+    var storageRef = storage.ref();
+
+</script>
+<script src="script.js" defer></script>
+
+</head>
+<body>
+  <div class="topnav">
+    <h1>ESP32-CAM Web App <i class="fas fa-camera"></i></h1>
+  </div>
+  <img src="http://192.168.0.115" alt="">
+    <!---<p><img id="img" width="500px"></p> >-->
+    <p>Last picture taken: <span id="date-time"></span></p>
+    <button onclick="window.location.reload();">Refresh</button>
+  </body>
+</html>
